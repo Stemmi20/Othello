@@ -23,14 +23,14 @@
 </div>
 
 <style>
-	.board {
-		display: grid;
-		grid-template-rows: repeat(8, 1fr);
-		gap: 2px;
-	}
 	.row {
 		display: grid;
 		grid-template-columns: repeat(8, 1fr);
 		gap: 2px;
+	}
+
+	.board {
+		width: 1px;
+		height: 1px;
 	}
 </style>

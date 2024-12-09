@@ -26,9 +26,3 @@
 		<Board {board} {currentPlayer} on:move={handleMove} />
 	</div>
 </main>
-
-<style>
-	.main {
-		text-align: center;
-	}
-</style>

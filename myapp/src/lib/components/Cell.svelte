@@ -14,11 +14,12 @@
 
 <style>
 	.cell {
-		width: 40py;
-		height: 40px;
-		border: 1px solid #000;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		width: 90px;
+		height: 90px;
+		border: 2px solid #000;
+		column-gap: 0;
+		row-gap: 0;
+		grid-row: auto;
+		grid-column: auto;
 	}
 </style>
