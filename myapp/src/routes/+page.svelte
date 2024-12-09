@@ -65,21 +65,12 @@
 	// 	precent = (currentprogress / maxprogress) * 100;
 	// }
 
-	let rows: number = 8;
-	let cols: number = 8;
-	let arr: string[][] = [];
-	for (let i = 0; i < rows; i++) {
-		arr[i] = []
-		for (let j = 0; j < cols; j++) {
-			arr[i][j] = String.fromCharCode(65 + i) + (j + 1);
-		}
-	}
-	console.log(arr);
+	import App from '$lib/components/App.svelte';
 </script>
 
+<App/>
 
-
-<div class="game-board ml-10 mt-10 grid-container">
+<!-- <div class="game-board ml-10 mt-10 grid-container">
 	<div class="toprow"></div>
 	<div class="toprow">A</div>
 	<div class="toprow">B</div>
@@ -88,14 +79,14 @@
 	<div class="toprow">E</div>
 	<div class="toprow">F</div>
 	<div class="toprow">G</div>
-	<div class="toprow">H</div>
+	<div class="toprow">H</div> -->
 
 	<!-- {#each leaderboard as t, i}
 		<Leaderboard username={t.name} level={t.level} currentprogress={t.currentprogress} />
 	{/each} -->
-</div>
+<!-- </div> -->
 
-<style>
+<!-- <style>
 	.grid-container {
 		display: grid;
 		grid-column: 1 / 9;
@@ -113,4 +104,4 @@
 		justify-content: center;
 		color: white;
 	}
-</style>
+</style> -->

@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import Cookies from 'js-cookie';
 	import { onMount } from 'svelte';
 	$: width = 0;
@@ -38,7 +38,7 @@
 			class="bg-[#0074f8] px-8px py-4px border-rd-8px enlarge"
 			on:click={() => close()}>Leaderboard</a
 		>
-		<!-- <a
+		<a
 			href="/systemdashboard"
 			class="bg-[#0074f8] px-8px py-4px border-rd-8px enlarge"
 			on:click={() => close()}>System Dashboard</a
@@ -56,7 +56,7 @@
 			class="bg-[#0074f8] px-8px py-4px border-rd-8px enlarge"
 			on:click={() => close()}>Support</a
 		> -->
-	</div>
+	<!-- </div>
 	<div class="flex {width > 700 ? 'flex-row' : 'flex-col mt-10 items-center'} gap-3">
 		<a
 			href="/profile"
@@ -68,12 +68,13 @@
 			class="bg-[#0074f8] px-8px py-4px border-rd-8px enlarge"
 			on:click={() => fetch('/api/logout', { method: 'POST' }).then(() => window.location.reload())}
 			on:click={() => close()}>{login}</a
-		>
+		> -->
 		<!-- <a
 			href="/creaters&credits"
 			class="bg-[#0074f8] px-8px py-4px border-rd-8px enlarge"
 			on:click={() => close()}>Creaters & Credits</a
 		> -->
-	</div>
+	<!-- </div>
 </div>
-<svelte:window bind:outerWidth={width} />
+<svelte:window bind:outerWidth={width} />  -->
+

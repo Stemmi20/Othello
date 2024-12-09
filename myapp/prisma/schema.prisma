@@ -1,93 +1,93 @@
-generator client {
-  provider = "prisma-client-js"
-}
+// generator client {
+//   provider = "prisma-client-js"
+// }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
 
-model task {
-  id   Int    @id @default(autoincrement())
-  userid Int
-  name String
-  xp   Int
-}
+// model task {
+//   id   Int    @id @default(autoincrement())
+//   userid Int
+//   name String
+//   xp   Int
+// }
 
-model progress {
-  id Int @id
-  currentprogress Int
-  level Int
-}
+// model progress {
+//   id Int @id
+//   currentprogress Int
+//   level Int
+// }
 
-model users {
-  id        Int     @id @default(autoincrement())
-  username  String
-  password  String
-  firstname String?
-  lastname  String?
-  leaderboard Boolean @default(false)
-  taskscompleted Int @default(0)
-}
+// model users {
+//   id        Int     @id @default(autoincrement())
+//   username  String
+//   password  String
+//   firstname String?
+//   lastname  String?
+//   leaderboard Boolean @default(false)
+//   taskscompleted Int @default(0)
+// }
 
-model contributers {
-  userid   String    @id
-  username String
-  avatar   String
-  socials  socials[]
-  support  support[]
-}
+// model contributers {
+//   userid   String    @id
+//   username String
+//   avatar   String
+//   socials  socials[]
+//   support  support[]
+// }
 
-model socials {
-  userid String
-  type   SocialsType
-  value  String
-  User   contributers @relation(fields: [userid], references: [userid])
+// model socials {
+//   userid String
+//   type   SocialsType
+//   value  String
+//   User   contributers @relation(fields: [userid], references: [userid])
 
-  @@id([userid, type])
-}
+//   @@id([userid, type])
+// }
 
-model support {
-  userid String
-  type   supportType
-  value  String
-  User   contributers @relation(fields: [userid], references: [userid])
+// model support {
+//   userid String
+//   type   supportType
+//   value  String
+//   User   contributers @relation(fields: [userid], references: [userid])
 
-  @@id([userid, type])
-}
+//   @@id([userid, type])
+// }
 
-model serverLoad {
-  id        Int     @id @default(autoincrement())
-  timestamp Decimal @db.Decimal
-  cpuLoad   Int
-  ramLoad   Int
-}
+// model serverLoad {
+//   id        Int     @id @default(autoincrement())
+//   timestamp Decimal @db.Decimal
+//   cpuLoad   Int
+//   ramLoad   Int
+// }
 
-enum SocialsType {
-  GitHub
-  Discord
-  PayPal
-  Reddit
-  TikTok
-  X
-  eBay
-  Crunchyroll
-  Xbox
-  Facebook
-  YouTube
-  Steam
-  Spotify
-  Domain
-  Twitch
-  EpicGames
-  Battlenet
-  RiotGames
-  LeagueofLegends
-  Bungienet
-  PlayStationNetwork
-}
+// enum SocialsType {
+//   GitHub
+//   Discord
+//   PayPal
+//   Reddit
+//   TikTok
+//   X
+//   eBay
+//   Crunchyroll
+//   Xbox
+//   Facebook
+//   YouTube
+//   Steam
+//   Spotify
+//   Domain
+//   Twitch
+//   EpicGames
+//   Battlenet
+//   RiotGames
+//   LeagueofLegends
+//   Bungienet
+//   PlayStationNetwork
+// }
 
-enum supportType {
-  Website_Creater
-  Website_Helper
-}
+// enum supportType {
+//   Website_Creater
+//   Website_Helper
+// }
