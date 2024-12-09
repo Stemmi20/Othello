@@ -37,7 +37,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.2.5",
 		"@sveltejs/kit": "^2.7.1",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.8",
+		"@sveltejs/vite-plugin-svelte": "4.0.0-next.8",
 		"@types/bcrypt": "^5.0.2",
 		"@types/chart.js": "^2.9.41",
 		"@types/eslint": "^9.6.1",
