@@ -1,6 +1,8 @@
 export type Board = number[][];
 export type Player = 1 | 2;
 
+// createBoard Funktion
+// Erstellen von spielfeld mit 2d Array
 export const createBoard = (): number[][] => {
 	const board = Array(8)
 		.fill(0)
@@ -13,11 +15,13 @@ export const createBoard = (): number[][] => {
 	return board;
 };
 
-export const isValidMove = (board: Board, x: number, y: number, player: Player): Boolean => {
+// isValidMove Funktion
+// überpfüfung von der move richtig ist
+export const isValidMove = (board: Board, x: number, y: number, player: Player): boolean => {
 	if (board[x][y] !== 0) return false;
 
 	const opponent = player === 1 ? 2 : 1;
-	const directons = [
+	const directions = [
 		[-1, 0],
 		[1, 0],
 		[0, -1],
@@ -28,17 +32,29 @@ export const isValidMove = (board: Board, x: number, y: number, player: Player):
 		[1, 1],
 	];
 
-	for (const [dx, dy] of directons) {
-		const nx = x + dx;
-		const ny = y + dy;
+	for (const [dx, dy] of directions) {
+		let nx = x + dx;
+		let ny = y + dy;
+		let hasOpponent = false;
 
-		if (nx >= 0 && nx < 8 && ny >= 0 && ny < 8 && board[nx][ny] === opponent) {
-			return true;
+		while (nx >= 0 && nx < 8 && ny >= 0 && ny < 8) {
+			if (board[nx][ny] === opponent) {
+				hasOpponent = true;
+			} else if (board[nx][ny] === player) {
+				if (hasOpponent) return true;
+				else break;
+			} else {
+				break;
+			}
+			nx += dx;
+			ny += dy;
 		}
 	}
+
 	return false;
 };
 
+// makeMove Funktion
 export const makeMove = (board: Board, x: number, y: number, player: Player): Board => {
 	if (!isValidMove(board, x, y, player)) {
 		throw new Error('Invalid move!');
@@ -80,44 +96,3 @@ export const makeMove = (board: Board, x: number, y: number, player: Player): Bo
 
 	return newBoard;
 };
-
-// export const makeMove = (board: Board, x: number, y: number, player: Player): Board => {
-// 	if (!isValidMove(board, x, y, player)) {
-// 		throw new Error('Invalid move!');
-// 	}
-
-// 	const newBoard = board.map((row) => [...row]);
-// 	newBoard[x][y] = player;
-
-// 	const opponent = player === 1 ? 2 : 1;
-// 	const directions = [
-// 		[-1, 0],
-// 		[1, 0],
-// 		[0, -1],
-// 		[0, 1],
-// 		[-1, -1],
-// 		[-1, 1],
-// 		[1, -1],
-// 		[1, 1],
-// 	];
-
-// 	for (const [dx, dy] of directions) {
-// 		let nx = x + dx;
-// 		let ny = y + dy;
-// 		const toFlip: [number, number][] = [];
-
-// 		while (nx >= 0 && nx < 8 && ny >= 0 && ny < 8 && board[nx][ny] === opponent) {
-// 			toFlip.push([nx, ny]);
-// 			nx += dx;
-// 			ny + dy;
-// 		}
-
-// 		if (nx >= 0 && nx < 8 && ny >= 0 && ny < 8 && board[nx][ny] === player) {
-// 			for (const [fx, fy] of toFlip) {
-// 				newBoard[fx][fy] = player;
-// 			}
-// 		}
-// 	}
-
-// 	return newBoard;
-// };
